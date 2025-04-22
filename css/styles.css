@@ -37,7 +37,8 @@ html, body {
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 0.5rem; 
+  padding-top: 1rem;
+  gap: 1rem;
   margin-left: 70px;
   justify-content: flex-start;
 }
@@ -45,6 +46,7 @@ html, body {
 .logo {
   height: 100px;
   width: 100px;
+  /* max-height: 80px; */
 }
 
 h1 {
