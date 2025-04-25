@@ -66,16 +66,47 @@
     </nav>
     <main>
         <div class="container">
-            <h2>Request Form</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, perspiciatis libero! Quam fugiat fuga recusandae saepe suscipit, consequuntur incidunt nemo autem eius provident cumque similique porro nostrum neque, enim at!</p>
+            <h2>MedEd ICT Asset Request Form</h2>
+            <p>Fill the form below to submit a request</p>
         </div>
-        <div class="container">
-            <h2>Example Heading</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
-        </div>
-        <div class="container">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
+        <div class="asset-request-container">
+            <div x-data="assetRequestForm" class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow">
+                <h2 class="text-2xl font-semibold mb-4"></h2>
+          
+                <label class="block mb-2">Select Asset</label>
+                <select x-model="selectedAsset" class="w-full mb-4 p-2 border rounded">
+                  <option value="">-- Choose an Asset --</option>
+                  <template x-for="asset in assets" :key="asset.name">
+                    <option x-text="asset.name"></option>
+                  </template>
+                </select>
+          <div class="column">
+                <label class="block mb-2">Start Date</label>
+                <input type="date" x-model="startDate" class="w-full mb-4 p-2 border rounded" :min="today">
+          
+                <label class="block mb-2">End Date</label>
+                <input type="date" x-model="endDate" class="w-full mb-4 p-2 border rounded" :min="startDate || today">
+          </div>
+                <template x-if="selectedAsset">
+                  <div class="mb-4 text-sm text-gray-700">
+                    <strong>Available Units Left:</strong> <span x-text="availableAssetsLeft"></span>
+                  </div>
+                </template>
+          <div class="column">
+                <label class="block mb-2">Contact Email</label>
+                <input type="email" class="w-full mb-4 p-2 border rounded" placeholder="you@example.com">
+
+                <label class="block mb-2">Department</label>
+                <input type="text" class="w-full mb-4 p-2 border rounded" placeholder="E.g., Radiology, Surgery">
+          </div>
+                
+                <label class="block mb-2">Reason for Request</label>
+                <textarea class="w-full mb-4 p-2 border rounded" rows="3"></textarea>
+                    
+                <div class="button-wrapper">
+                    <button class="ticket-button">Submit Request</button>
+                </div>       
+            </div>
         </div>
     </main>
 </body>
