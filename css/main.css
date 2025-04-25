@@ -263,6 +263,7 @@ main p {
     }
 }
 
+/* Homepage Buttons */
 .cta-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -287,5 +288,86 @@ main p {
     color: white;
   }
 
+/* Ticket Page */
+.ticket-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}
 
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
 
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.input-box .label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-clr);
+}
+
+.input-box input, .input-box select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line-clr);
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+.input-box input:focus, .input-box select:focus {
+    border-color: var(--accent-clr);
+    outline: none;
+}
+
+.input-box input::placeholder, .input-box select::placeholder {
+    color: var(--secondary-text-clr);
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .ticket-button {
+    background-color: var(--accent-clr); 
+    color: var(--text-btn-clr);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem; 
+    border: none;
+    border-radius: 999px; 
+    width: 100%;
+  }
+
+  /* Responsive override for screens ≥ 640px (like sm:flex-row) */
+@media (min-width: 640px) {
+    .button-wrapper {
+      flex-direction: row;
+    }
+  
+    .ticket-button {
+      width: auto;
+    }
+  }
+
+/* Feedback Page */
+.feedback-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}

@@ -68,27 +68,59 @@
             <h2>Create a Ticket</h2>
             <p>Fill the form below to create a ticket.</p>
         </div>
-        <div class="container">
-            <form action="">
-                <label for="category">Category</label>
-                <select name="category" id="ticket-category">
-                    <option>Select a category</option>
-                    <option>Laptop/PC Equipment Issue</option>
-                    <option>Laptop/PC Software Issue</option>
-                    <option>AV Equipment Issue</option>
-                </select>
-                <label for="priority">Priority</label>
-                <select name="priority" id="ticket-priority">
-                    <option>Select a category</option>
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
-                    <option>Critical</option>
-                </select>
-                <br>
+        <div class="ticket-container">
+            <form action="#" class="form">
+              <div class="column">
+                <div class="input-box">
+                    <label for="category">Category</label>
+                    <select id="ticket-category" name="category">
+                        <option value="">select a category</option>
+                        <option value="">Laptop/PC Equipment Issue</option>
+                        <option value="">Laptop/PC Software Issue</option>
+                        <option value="">AV Equipment Issue</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <label for="category">Priority</label>
+                    <select id="ticket-priority" name="ticket-priority">
+                        <option value="">select a priority</option>
+                        <option value="">Low</option>
+                        <option value="">Medium</option>
+                        <option value="">High</option>
+                        <option value="">Critical</option>
+                    </select>
+                </div>
+              </div>
+                <div class="input-box">
+                    <label for="ticket-description" style="display: block; margin-bottom: 4px;">Description</label>
+                    <textarea id="ticket-description" name="ticket-description" rows="8" cols="50" style="width: 100%" placeholder="Describe the issue"></textarea>
+                </div>
+                <div class="input-box">
+                    <label for="ticket-attachment">Image(s) of the Issue</label>
+                    <input id="ticket-attachment" type="file"  name="ticket-attachment">
+                </div>      
+                <div class="input-box">
+                    <label for="location">Location</label>
+                    <input id="location" type="text"  name="location" placeholder="E.g: CSB RM10016">
+                </div> 
+                <div class="input-box">
+                    <label for="phone-number">Phone Number</label>
+                    <input id="phone-number" type="number"  name="phone-number" placeholder="E.g: 07512345678 or Ext. 20000">
+                </div> 
+                <div class="input-box">
+                    <label for="user-email">Email</label>
+                    <input id="user-email" type="email"  name="user-email">
+                </div>  
+                <div class="input-box">
+                    <label for="user-name">Name</label>
+                    <input id="user-name" type="text"  name="user-name">
+                </div>
+                <div class="button-wrapper">
+                    <button class="ticket-button">Submit New Ticket</button>
+                    <button class="ticket-button">Reset</button>
+                  </div>
             </form>
         </div>
-       
     </main>
 </body>
 </html>
