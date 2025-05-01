@@ -177,6 +177,11 @@ main p {
     margin-bottom: 15px;
 }
 
+p {
+    text-align: justify;
+}
+
+
 .container {
     border: 1px solid var(--line-clr);
     border-radius: 1em;
@@ -273,11 +278,11 @@ main p {
   .cta-button {
     background-color: var(--accent-clr);
     color: var(--text-btn-clr);
-    border: 2px solid var(--accent-clr);
+    border: 1px solid var(--accent-clr);
     border-radius: 999px;
-    padding: 0.75rem 1.5rem;
+    padding: 0.3rem 1em;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
     text-align: center;
@@ -289,7 +294,7 @@ main p {
   }
 
 /* Ticket Page */
-.ticket-container {
+.ticket-container, .asset-request-container {
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
@@ -341,7 +346,7 @@ main p {
     margin-top: 1rem;
   }
   
-  .ticket-button {
+.ticket-button {
     background-color: var(--accent-clr); 
     color: var(--text-btn-clr);
     font-size: 14px;
@@ -394,4 +399,36 @@ input, select, textarea {
 .asset-request-container .column {
     display: flex;
     column-gap: 15px;
+}
+
+#ticket-description, #feedback {
+    height: 200px;
+    font-size: 1rem;
+}
+
+#start-date, #end-date {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line-clr);
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+    font-size: 1rem;
+    margin-top: 8px;
+}
+#start-date:focus, #end-date:focus {
+    border-color: var(--accent-clr);
+    outline: none;
+}
+#start-date::placeholder, #end-date::placeholder {
+    color: var(--secondary-text-clr);
+}
+#start-date::-webkit-calendar-picker-indicator, #end-date::-webkit-calendar-picker-indicator {
+    color: var(--text-clr);
+}
+#start-date::-webkit-inner-spin-button, #end-date::-webkit-inner-spin-button {
+    display: none;
+}
+#start-date::-webkit-calendar-picker-indicator, #end-date::-webkit-calendar-picker-indicator {
+    color: var(--text-clr);
 }
