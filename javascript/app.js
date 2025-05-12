@@ -21,32 +21,67 @@ function toggleSubMenu(button) {
      }
 }
 
-document.addEventListener('alpine:init', () => {
-   Alpine.data('assetRequestForm', () => ({
-     assets: [
-       { name: 'Projector', total: 5, bookedDates: ['2025-04-27', '2025-04-30'] },
-       { name: 'Laptop', total: 10, bookedDates: ['2025-04-26', '2025-05-01'] },
-       { name: 'Mobile Cart', total: 3, bookedDates: ['2025-04-25'] },
-     ],
-     selectedAsset: '',
-     startDate: '',
-     endDate: '',
-     today: new Date().toISOString().split('T')[0],
- 
-     get currentAsset() {
-       return this.assets.find(a => a.name === this.selectedAsset);
-     },
- 
-     isDateAvailable(date) {
-       if (!this.currentAsset) return true;
-       return !this.currentAsset.bookedDates.includes(date);
-     },
- 
-     get availableAssetsLeft() {
-       if (!this.currentAsset) return '-';
-       const booked = this.currentAsset.bookedDates.filter(d => d >= this.startDate && d <= this.endDate).length;
-       return this.currentAsset.total - booked;
-     }
-   }))
- });
- 
+ document.addEventListener("DOMContentLoaded", function () {
+      const rows = document.querySelectorAll("#ticket-table-body tr");
+
+      rows.forEach(row => {
+        const priorityCell = row.cells[3];
+        if (priorityCell) {
+          const priority = priorityCell.textContent.trim().toLowerCase();
+
+          switch (priority) {
+            case "low":
+              priorityCell.classList.add("priority-low");
+              break;
+            case "medium":
+              priorityCell.classList.add("priority-medium");
+              break;
+            case "high":
+              priorityCell.classList.add("priority-high");
+              break;
+            case "critical":
+              priorityCell.classList.add("priority-critical");
+              break;
+          }
+        }
+      });
+    });
+
+
+document.querySelectorAll(".edit-btn").forEach(button => {
+  button.addEventListener("click", function () {
+    const row = this.closest("tr");
+    const cells = row.querySelectorAll("td");
+
+    // Populate all modal fields
+    document.getElementById("edit-ticket-id").value = cells[0].textContent.trim();
+    document.getElementById("edit-subject").value = cells[1].textContent.trim();
+    document.getElementById("edit-category").value = cells[2].textContent.trim();
+    document.getElementById("edit-priority").value = cells[3].textContent.trim();
+    document.getElementById("edit-status").value = cells[4].textContent.trim();
+    document.getElementById("edit-assigned").value = cells[5].textContent.trim();
+    document.getElementById("edit-createdby").value = cells[6].textContent.trim();
+    document.getElementById("edit-location").value = cells[7].textContent.trim();
+    document.getElementById("edit-phone").value = cells[8].textContent.trim();
+    document.getElementById("edit-date").value = cells[9].textContent.trim();
+
+    document.getElementById("edit-update").value = ""; // Clear previous update
+    document.getElementById("editModal").style.display = "block";
+  });
+});
+
+document.getElementById("editForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Example payload
+  const ticketUpdate = {
+    id: document.getElementById("edit-ticket-id").value,
+    status: document.getElementById("edit-status").value,
+    update: document.getElementById("edit-update").value
+  };
+
+  console.log("Submitting update:", ticketUpdate);
+
+  alert("Changes saved (not yet connected to backend)");
+  document.getElementById("editModal").style.display = "none";
+});

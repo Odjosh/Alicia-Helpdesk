@@ -65,18 +65,211 @@
         </ul>
     </nav>
     <main>
-        <div class="container">
-            <h2>Admin Dashboard</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, perspiciatis libero! Quam fugiat fuga recusandae saepe suscipit, consequuntur incidunt nemo autem eius provident cumque similique porro nostrum neque, enim at!</p>
+        <div class="dashboard-header">
+            <h2>Admin Dashboard | Ticket Overview</h2>
         </div>
         <div class="container">
-            <h2>Example Heading</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
+            <span class="card">
+                <h3>Total Tickets Logged</h3>
+                <p id="total-tickets" class="paragraph-font">120</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480q0-17-11.5-28.5T480-520q-17 0-28.5 11.5T440-480q0 17 11.5 28.5T480-440Zm0-160q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm320 440H160q-33 0-56.5-23.5T80-240v-160q33 0 56.5-23.5T160-480q0-33-23.5-56.5T80-560v-160q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v160q-33 0-56.5 23.5T800-480q0 33 23.5 56.5T880-400v160q0 33-23.5 56.5T800-160Zm0-80v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102h640ZM480-480Z"/></svg>
+            </span>
+            <span class="card">
+                <h3>Total Tickets Resolved</h3>
+                <p id="total-tickets-resolved" class="paragraph-font">100</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m368-320 112-84 110 84-42-136 112-88H524l-44-136-44 136H300l110 88-42 136ZM160-160q-33 0-56.5-23.5T80-240v-135q0-11 7-19t18-10q24-8 39.5-29t15.5-47q0-26-15.5-47T105-556q-11-2-18-10t-7-19v-135q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v135q0 11-7 19t-18 10q-24 8-39.5 29T800-480q0 26 15.5 47t39.5 29q11 2 18 10t7 19v135q0 33-23.5 56.5T800-160H160Zm0-80h640v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102Zm320-240Z"/></svg>
+            </span>
+            <span class="card">
+                <h3>Pending Tickets</h3>
+                <p id="total-tickets-resolved" class="paragraph-font">20</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80Zm67-105 28-28-75-75v-112h-40v128l87 87Zm-547 65q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h167q11-35 43-57.5t70-22.5q40 0 71.5 22.5T594-840h166q33 0 56.5 23.5T840-760v250q-18-13-38-22t-42-16v-212h-80v120H280v-120h-80v560h212q7 22 16 42t22 38H200Zm280-640q17 0 28.5-11.5T520-800q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800q0 17 11.5 28.5T480-760Z"/></svg>
+            </span>
+            <span class="card">
+                <h3>Average Resolution Time</h3>
+                <p id="progress-rating" class="paragraph-font">15 min.</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-240q100 0 170-70t70-170q0-100-70-170t-170-70v240L310-310q35 33 78.5 51.5T480-240Zm0 160q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            </span>
+            <span class="card">
+                <h3>Customer Satisfaction</h3>
+                <p id="progress-rating" class="paragraph-font">5</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/></svg>
+            </span>
         </div>
         <div class="container">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
+            <span class="ticket-details" id="header-font">All Ticket Details</span>
+            <span class="ticket-details">
+                <div class="input-box">
+                    <label for="category">Category</label>
+                    <select id="ticket-category" name="category">
+                        <option value="">select a category</option>
+                        <option value="">Laptop/PC Equipment Issue</option>
+                        <option value="">Laptop/PC Software Issue</option>
+                        <option value="">AV Equipment Issue</option>
+                    </select>
+                </div>
+            </span>
+            <span class="ticket-details">
+                <div class="input-box">
+                    <label for="category">Priority</label>
+                    <select id="ticket-priority" name="ticket-priority">
+                        <option value="">select a priority</option>
+                        <option value="">Low</option>
+                        <option value="">Medium</option>
+                        <option value="">High</option>
+                        <option value="">Critical</option>
+                    </select>
+                </div>
+            </span>
+            <span class="ticket-details">
+                <div class="input-box">
+                    <label for="category">Status</label>
+                    <select id="ticket-status" name="ticket-status">
+                        <option value="">select a status</option>
+                        <option value="">Open</option>
+                        <option value="">In Progress</option>
+                        <option value="">Resolved</option>
+                        <option value="">Closed</option>
+                    </select>
+                </div>
+            </span>
+            <div class="ticket-search">
+                <div class="input-box">
+                    <input type="text" id="search" name="search" placeholder="Search by ticket ID or subject">
+                </div>
+            </div>
         </div>
-    </main>
+
+        <!-- Ticket Table -->
+        <div class="ticket-table-container">
+            <table>
+                <thead id="ticket-table-header">
+                   <tr class="table-header">
+                       <th>Ticket ID</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Assigned To</th>
+                        <th>Created By</th>
+                        <th>Location</th>
+                        <th>Phone Number</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody id="ticket-table-body">
+                    <!-- Ticket rows will be dynamically generated here -->
+                    <tr class="table-row">
+                        <td>12345</td>
+                        <td>Issue with Laptop</td>
+                        <td>Laptop/PC Equipment Issue</td>
+                        <td>High</td>
+                        <td>In Progress</td>
+                        <td>Joshua Odubu</td>
+                        <td>Jane Smith</td>
+                        <td>CSB RM10016</td>
+                        <td>07512345678</td>
+                        <td>2023-10-01</td>
+                    </tr>
+                    <tr>
+                        <td>12346</td>
+                        <td>Software Installation</td>
+                        <td>Laptop/PC Software Issue</td>
+                        <td>Medium</td>
+                        <td>Open</td>
+                        <td>George Taylor</td>
+                        <td>John Doe</td>
+                        <td>CSB RM10017</td>
+                        <td>07512345679</td>
+                        <td>2023-10-02</td>
+                    </tr>
+                    <tr>
+                        <td>12347</td>
+                        <td>AV Equipment Setup</td>
+                        <td>AV Equipment Issue</td>
+                        <td>Low</td>
+                        <td>Resolved</td>
+                        <td>George Taylor</td>
+                        <td>Mary Johnson</td>
+                        <td>CSB RM10018</td>
+                        <td>07512345680</td>
+                        <td>2023-10-03</td>
+                    </tr>
+                    <tr>
+                        <td>12348</td>
+                        <td>AV Equipment Setup</td>
+                        <td>AV Equipment Issue</td>
+                        <td>Critical</td>
+                        <td>Resolved</td>
+                        <td>Joshua Odubu</td>
+                        <td>Mary Johnson</td>
+                        <td>CSB RM10018</td>
+                        <td>07512345680</td>
+                        <td>2023-10-03</td>
+                    </tr>
+                </tbody>
+            </table>
+
+          <!-- Modal -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Update Ticket</h2>
+                        <form id="editForm">
+                     <!-- Read-only fields -->
+                            <label>Ticket ID</label>
+                            <input type="text" id="edit-ticket-id" name="ticket_id" readonly />
+
+                            <label>Description</label>
+                            <input type="text" id="edit-subject" name="subject" readonly />
+
+                            <label>Category</label>
+                            <input type="text" id="edit-category" name="category" readonly />
+
+                            <label>Priority</label>
+                            <input type="text" id="edit-priority" name="priority" readonly />
+
+                            <label>Assigned To</label>
+                            <input type="text" id="edit-assigned" name="assigned_to" readonly />
+
+                            <label>Created By</label>
+                            <input type="text" id="edit-createdby" name="created_by" readonly />
+
+                            <label>Location</label>
+                            <input type="text" id="edit-location" name="location" readonly />
+
+                            <label>Phone Number</label>
+                            <input type="text" id="edit-phone" name="phone_number" readonly />
+
+                            <label>Date Created</label>
+                            <input type="text" id="edit-date" name="date_created" readonly />
+
+                        <!-- Editable Fields -->
+                        <label for="edit-status">Status</label>
+                        <select id="edit-status" name="status" required>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+
+                        <label for="edit-update">Ticket Update</label>
+                        <textarea id="edit-update" name="ticket_update" rows="4" placeholder="Add your update or comment here..." required></textarea>
+
+                        <button type="submit">Save Changes</button>
+                        </form>
+            </div>
+        </div>
+    </div>
+</div>   
+</main>
+<script>
+  const modal = document.getElementById("editModal");
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.querySelector(".close");
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+</script>
 </body>
 </html>

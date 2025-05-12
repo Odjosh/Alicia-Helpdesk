@@ -66,16 +66,55 @@
     <main>
         <div class="container">
             <h2>My Profile</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, perspiciatis libero! Quam fugiat fuga recusandae saepe suscipit, consequuntur incidunt nemo autem eius provident cumque similique porro nostrum neque, enim at!</p>
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, perspiciatis libero! Quam fugiat fuga recusandae saepe suscipit, consequuntur incidunt nemo autem eius provident cumque similique porro nostrum neque, enim at!</p> -->
         </div>
         <div class="container">
-            <h2>Example Heading</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
-        </div>
-        <div class="container">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
-        </div>
+            <div class="profile-container">
+                <header class="profile-header">
+                <div class="profile-image">
+                    <img src="/assets/images/profile-picture.jpg" alt="Profile Picture" width="80" height="80">
+                </div>
+            <div class="profile-info">
+                <h1 class="profile-name">Joshua Odubu</h1>
+                <p class="profile-role">IT Admin</p>
+            </div>
+        </header>
+
+        <nav class="profile-navigation">
+            <ul class="tabs">
+                <li class="tab-item active" data-tab="overview">Overview</li>
+                <li class="tab-item" data-tab="profile-details">Profile Details</li>
+                <li class="tab-item" data-tab="settings">Settings</li>
+            </ul>
+        </nav>
+
+        <main class="profile-content">
+            <div id="overview" class="tab-panel active">
+                <section class="overview-stats">
+                    <div>Open Tickets: <span id="open-tickets-count">5</span></div>
+                    <div>Resolved (Last Week): <span id="resolved-weekly-count">12</span></div>
+                </section>
+                <div class="overview-links">
+                    <a href="#">View Assigned Tickets</a>
+                </div>
+            </div>
+
+            <div id="profile-details" class="tab-panel">
+                <p><strong>Email:</strong> <span id="user-email">joshua.odubu@uhcw.nhs.uk</span></p>
+                <p><strong>Contact:</strong> <span id="user-phone">07525230885 Ext: 28712</span></p>
+                <p><strong>Department:</strong> <span id="user-department">Medical Education</span></p>
+                <p><strong>Last Active:</strong> <span id="last-active">Yesterday</span></p>
+            </div>
+
+            <div id="settings" class="tab-panel">
+                <button>Change Password</button>
+                <button>Update Profile Picture</button>
+                <button>Notification Preferences</button>
+            </div>
+        </main>
+
+    </div>
+    <script src="script.js"></script> </body>
     </main>
 </body>
 </html>
