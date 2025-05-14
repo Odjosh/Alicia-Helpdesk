@@ -48,40 +48,82 @@ function toggleSubMenu(button) {
     });
 
 
-document.querySelectorAll(".edit-btn").forEach(button => {
-  button.addEventListener("click", function () {
-    const row = this.closest("tr");
-    const cells = row.querySelectorAll("td");
+    // To Filter Table Rows
+    
+    function searchTickets() {
+  const input = document.getElementById("ticketSearch");
+  const filter = input.value.toLowerCase();
+  const table = document.querySelector(".radio-table");
+  const rows = table.getElementsByTagName("tr");
 
-    // Populate all modal fields
-    document.getElementById("edit-ticket-id").value = cells[0].textContent.trim();
-    document.getElementById("edit-subject").value = cells[1].textContent.trim();
-    document.getElementById("edit-category").value = cells[2].textContent.trim();
-    document.getElementById("edit-priority").value = cells[3].textContent.trim();
-    document.getElementById("edit-status").value = cells[4].textContent.trim();
-    document.getElementById("edit-assigned").value = cells[5].textContent.trim();
-    document.getElementById("edit-createdby").value = cells[6].textContent.trim();
-    document.getElementById("edit-location").value = cells[7].textContent.trim();
-    document.getElementById("edit-phone").value = cells[8].textContent.trim();
-    document.getElementById("edit-date").value = cells[9].textContent.trim();
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i].getElementsByTagName("td");
+    let rowText = "";
+    for (let j = 0; j < cells.length; j++) {
+      rowText += cells[j].textContent.toLowerCase() + " ";
+    }
 
-    document.getElementById("edit-update").value = ""; // Clear previous update
-    document.getElementById("editModal").style.display = "block";
+    rows[i].style.display = rowText.includes(filter) ? "" : "none";
+  }
+}
+
+// Reset Search Function
+
+function resetSearch() {
+  // 1. Clear the search input
+  document.getElementById("ticketSearch").value = "";
+
+  // 2. Show all rows
+  const rows = document.querySelectorAll(".radio-table tbody tr");
+  rows.forEach(row => {
+    row.style.display = "";
+    row.classList.remove("selected"); // 4. Remove highlight
   });
-});
 
-document.getElementById("editForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+  // 3. Uncheck all radio buttons
+  const radios = document.querySelectorAll('input[type="radio"][name="ticketSelect"]');
+  radios.forEach(radio => {
+    radio.checked = false;
+  });
+}
 
-  // Example payload
-  const ticketUpdate = {
-    id: document.getElementById("edit-ticket-id").value,
-    status: document.getElementById("edit-status").value,
-    update: document.getElementById("edit-update").value
-  };
+function loadTicketDetails(radio) {
+  const ticketId = radio.closest('tr').dataset.ticketId;
 
-  console.log("Submitting update:", ticketUpdate);
+  // Optional: visually mark selected
+  document.querySelectorAll('.radio-table tbody tr').forEach(row => row.classList.remove('selected'));
+  radio.closest('tr').classList.add('selected');
 
-  alert("Changes saved (not yet connected to backend)");
-  document.getElementById("editModal").style.display = "none";
-});
+  // Show the modal
+  document.getElementById('editModal').classList.remove('hidden');
+
+  // Fetch ticket details
+  fetch(`get_ticket.php?id=${ticketId}`)
+    .then(response => response.json())
+    .then(data => {
+      // Fill read-only fields
+      document.getElementById('edit-ticket-id').value = data.id || '';
+      document.getElementById('edit-subject').value = data.subject || '';
+      document.getElementById('edit-category').value = data.category || '';
+      document.getElementById('edit-priority').value = data.priority || '';
+      document.getElementById('edit-assigned').value = data.assigned_to || '';
+      document.getElementById('edit-createdby').value = data.created_by || '';
+      document.getElementById('edit-location').value = data.location || '';
+      document.getElementById('edit-phone').value = data.phone_number || '';
+      document.getElementById('edit-date').value = data.date_created || '';
+
+      // Fill editable status
+      document.getElementById('edit-status').value = data.status || 'Open';
+
+      // Clear previous update message
+      document.getElementById('edit-update').value = '';
+    })
+    .catch(error => {
+      console.error('Error loading ticket:', error);
+      alert('Unable to load ticket details.');
+    });
+}
+
+function closeModal() {
+  document.getElementById('editModal').classList.add('hidden');
+}

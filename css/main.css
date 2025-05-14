@@ -54,8 +54,7 @@ body {
     padding: 5px 1em;
     background-color: var(--base-clr);
     background: transparent  10%;
-    border-right: 1px solid var(--line-clr);
-    
+    border-right: 1px solid var(--line-clr);   
     position: sticky;
     top: 0;
     align-self: start;
@@ -278,27 +277,35 @@ p {
 /* Homepage Buttons */
 .cta-wrapper {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
-  }
-  
-  .cta-button {
-    background-color: var(--accent-clr);
-    color: var(--text-btn-clr);
-    border: 1px solid var(--accent-clr);
-    border-radius: 999px;
-    padding: 0.3rem 1em;
-    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
     font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    width: 180px;
     text-align: center;
-  }
-  
-  .cta-button:hover {
-    background-color: #2563eb;
     color: white;
-  }
+    background-color: var(--accent-clr);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #4b50e6; /* Slightly darker accent */
+    transform: translateY(-1px);
+}
+
+.cta-button:active {
+    background-color: #3e43c9; /* Deeper tactile feedback */
+    transform: scale(0.98);
+}
 
 /* Dashboard */
 .dashboard-header {
@@ -371,6 +378,7 @@ h3 {
     border-color: var(--accent-clr);;
 }
 
+
 .ticket-table-container {
     min-height: 100vh;
     padding: 2rem;
@@ -382,6 +390,97 @@ h3 {
     overflow-x: auto;
 }
 
+.dashboard-btn {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.dashboard-btn input[type="button"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    width: 150px;
+}
+
+/* Search Button (Accent Color) */
+.search-button {
+    background-color: var(--accent-clr);
+}
+
+.search-button:hover {
+    background-color: #4b50e6; /* Slightly darker variant */
+    transform: translateY(-1px);
+}
+
+.search-button:active {
+    background-color: #3e43c9;
+    transform: scale(0.98);
+}
+
+/* Reset Button (Subtle Danger) */
+.search-container {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#ticketSearch {
+  padding: 8px 12px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.reset-btn {
+  padding: 8px 20px;
+  font-size: 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #d32f2f;
+  transform: translateY(-1px);
+}
+
+.reset-btn:active {
+    background-color: #d32f2f;
+    transform: scale(0.98);
+}
+
+/* Reset Button (Subtle Danger) */
+.edit-button {
+    background-color: var(--accent-clr); /* Bootstrap-like soft red */
+}
+
+.edit-button:hover {
+    background-color: #4b50e6; /* Slightly darker variant */
+    transform: translateY(-1px);
+}
+
+.edit-button:active {
+    background-color: #3e43c9;
+    transform: scale(0.98);
+}
+
+/* Dashboard Table */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -559,23 +658,35 @@ span .header-row {
 }
 
 .button-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Shared ticket button style */
 .ticket-button {
-    background-color: var(--accent-clr); 
-    color: var(--text-btn-clr);
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0.5rem 1.5rem; 
-    border: none;
-    border-radius: 999px; 
-    width: 100%;
-  }
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: white; 
+  background-color: var(--accent-clr); /* #5e63ff from your theme */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover and Active States */
+.ticket-button:hover {
+  background-color: #4b50e6; /* slightly darker variant */
+  transform: translateY(-1px);
+}
+
+.ticket-button:active {
+  background-color: #3e43c9; /* deeper blue */
+  transform: scale(0.98);
+}
 
   /* Responsive override for screens ≥ 640px (like sm:flex-row) */
 @media (min-width: 640px) {

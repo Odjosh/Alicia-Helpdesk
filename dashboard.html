@@ -134,17 +134,27 @@
             </span>
             <div class="ticket-search">
                 <div class="input-box">
-                    <input type="text" id="search" name="search" placeholder="Search by ticket ID or subject">
+                    <div class="search-container">
+                       <input type="text" id="ticketsearch" name="search" placeholder="Search by ticket ID or subject" onkeyup="searchTicket()"> 
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-btn">
+                <input class="search-button" type="button" value="Search">
+                <input class="edit-button" type="button" value="Edit">
+                <div class="search-container">
+                    <button onclick="resetSearch()" class="reset-btn">Reset</button>
                 </div>
             </div>
         </div>
 
         <!-- Ticket Table -->
         <div class="ticket-table-container">
-            <table>
+            <table class="radio-table">
                 <thead id="ticket-table-header">
                    <tr class="table-header">
-                       <th>Ticket ID</th>
+                        <th>Select</th>
+                        <th>Ticket ID</th>
                         <th>Description</th>
                         <th>Category</th>
                         <th>Priority</th>
@@ -158,7 +168,8 @@
                 </thead>
                 <tbody id="ticket-table-body">
                     <!-- Ticket rows will be dynamically generated here -->
-                    <tr class="table-row">
+                    <tr class="table-row" data-ticket-id="12345">
+                        <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
                         <td>12345</td>
                         <td>Issue with Laptop</td>
                         <td>Laptop/PC Equipment Issue</td>
@@ -168,9 +179,10 @@
                         <td>Jane Smith</td>
                         <td>CSB RM10016</td>
                         <td>07512345678</td>
-                        <td>2023-10-01</td>
+                        <td>2025-10-01</td>
                     </tr>
                     <tr>
+                        <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
                         <td>12346</td>
                         <td>Software Installation</td>
                         <td>Laptop/PC Software Issue</td>
@@ -180,9 +192,10 @@
                         <td>John Doe</td>
                         <td>CSB RM10017</td>
                         <td>07512345679</td>
-                        <td>2023-10-02</td>
+                        <td>2025-10-02</td>
                     </tr>
                     <tr>
+                        <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
                         <td>12347</td>
                         <td>AV Equipment Setup</td>
                         <td>AV Equipment Issue</td>
@@ -192,9 +205,10 @@
                         <td>Mary Johnson</td>
                         <td>CSB RM10018</td>
                         <td>07512345680</td>
-                        <td>2023-10-03</td>
+                        <td>2025-10-03</td>
                     </tr>
                     <tr>
+                        <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
                         <td>12348</td>
                         <td>AV Equipment Setup</td>
                         <td>AV Equipment Issue</td>
@@ -204,61 +218,62 @@
                         <td>Mary Johnson</td>
                         <td>CSB RM10018</td>
                         <td>07512345680</td>
-                        <td>2023-10-03</td>
+                        <td>2025-10-03</td>
                     </tr>
                 </tbody>
             </table>
 
-          <!-- Modal -->
-            <div id="editModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Update Ticket</h2>
-                        <form id="editForm">
-                     <!-- Read-only fields -->
-                            <label>Ticket ID</label>
-                            <input type="text" id="edit-ticket-id" name="ticket_id" readonly />
+            <!-- Modal for editing/updating ticket -->
+            <div id="editModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Update Ticket</h2>
 
-                            <label>Description</label>
-                            <input type="text" id="edit-subject" name="subject" readonly />
+                <form id="editForm">
+                <!-- Read-only Fields -->
+                <label for="edit-ticket-id">Ticket ID</label>
+                <input type="text" id="edit-ticket-id" name="ticket_id" readonly />
 
-                            <label>Category</label>
-                            <input type="text" id="edit-category" name="category" readonly />
+                <label for="edit-subject">Subject</label>
+                <input type="text" id="edit-subject" name="subject" readonly />
 
-                            <label>Priority</label>
-                            <input type="text" id="edit-priority" name="priority" readonly />
+                <label for="edit-category">Category</label>
+                <input type="text" id="edit-category" name="category" readonly />
 
-                            <label>Assigned To</label>
-                            <input type="text" id="edit-assigned" name="assigned_to" readonly />
+                <label for="edit-priority">Priority</label>
+                <input type="text" id="edit-priority" name="priority" readonly />
 
-                            <label>Created By</label>
-                            <input type="text" id="edit-createdby" name="created_by" readonly />
+                <label for="edit-assigned">Assigned To</label>
+                <input type="text" id="edit-assigned" name="assigned_to" readonly />
 
-                            <label>Location</label>
-                            <input type="text" id="edit-location" name="location" readonly />
+                <label for="edit-createdby">Created By</label>
+                <input type="text" id="edit-createdby" name="created_by" readonly />
 
-                            <label>Phone Number</label>
-                            <input type="text" id="edit-phone" name="phone_number" readonly />
+                <label for="edit-location">Location</label>
+                <input type="text" id="edit-location" name="location" readonly />
 
-                            <label>Date Created</label>
-                            <input type="text" id="edit-date" name="date_created" readonly />
+                <label for="edit-phone">Phone Number</label>
+                <input type="text" id="edit-phone" name="phone_number" readonly />
 
-                        <!-- Editable Fields -->
-                        <label for="edit-status">Status</label>
-                        <select id="edit-status" name="status" required>
-                            <option value="Open">Open</option>
-                            <option value="In Progress">In Progress</option>
-                            <option value="Resolved">Resolved</option>
-                            <option value="Closed">Closed</option>
-                        </select>
+                <label for="edit-date">Date Created</label>
+                <input type="text" id="edit-date" name="date_created" readonly />
 
-                        <label for="edit-update">Ticket Update</label>
-                        <textarea id="edit-update" name="ticket_update" rows="4" placeholder="Add your update or comment here..." required></textarea>
+                <!-- Editable Fields -->
+                <label for="edit-status">Status</label>
+                <select id="edit-status" name="status" required>
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Closed">Closed</option>
+                </select>
 
-                        <button type="submit">Save Changes</button>
-                        </form>
+                <label for="edit-update">Ticket Update</label>
+                <textarea id="edit-update" name="ticket_update" rows="4" placeholder="Add your update or comment here..." required></textarea>
+
+                <button type="submit">Save Changes</button>
+                </form>
             </div>
-        </div>
+            </div>
     </div>
 </div>   
 </main>
