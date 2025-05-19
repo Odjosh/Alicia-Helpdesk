@@ -48,82 +48,70 @@ function toggleSubMenu(button) {
     });
 
 
-    // To Filter Table Rows
+//     // To Filter Table Rows
     
-    function searchTickets() {
-  const input = document.getElementById("ticketSearch");
-  const filter = input.value.toLowerCase();
-  const table = document.querySelector(".radio-table");
-  const rows = table.getElementsByTagName("tr");
+//     function searchTickets() {
+//   const input = document.getElementById("ticketSearch");
+//   const filter = input.value.toLowerCase();
+//   const table = document.querySelector(".radio-table");
+//   const rows = table.getElementsByTagName("tr");
 
-  for (let i = 1; i < rows.length; i++) {
-    const cells = rows[i].getElementsByTagName("td");
-    let rowText = "";
-    for (let j = 0; j < cells.length; j++) {
-      rowText += cells[j].textContent.toLowerCase() + " ";
+//   for (let i = 1; i < rows.length; i++) {
+//     const cells = rows[i].getElementsByTagName("td");
+//     let rowText = "";
+//     for (let j = 0; j < cells.length; j++) {
+//       rowText += cells[j].textContent.toLowerCase() + " ";
+//     }
+
+//     rows[i].style.display = rowText.includes(filter) ? "" : "none";
+//   }
+// }
+
+// // Reset Search Function
+
+// function resetSearch() {
+//   // 1. Clear the search input
+//   document.getElementById("ticketSearch").value = "";
+
+//   // 2. Show all rows
+//   const rows = document.querySelectorAll(".radio-table tbody tr");
+//   rows.forEach(row => {
+//     row.style.display = "";
+//     row.classList.remove("selected"); // 4. Remove highlight
+//   });
+
+//   // 3. Uncheck all radio buttons
+//   const radios = document.querySelectorAll('input[type="radio"][name="ticketSelect"]');
+//   radios.forEach(radio => {
+//     radio.checked = false;
+//   });
+// }
+
+function loadTicketDetails(radioBtn) {
+    const row = radioBtn.closest('tr');
+    if (!row) {
+        alert("Unable to load ticket details.");
+        return;
     }
 
-    rows[i].style.display = rowText.includes(filter) ? "" : "none";
-  }
+    const cells = row.getElementsByTagName('td');
+
+    // Map values from the table to modal inputs
+    document.getElementById('edit-ticket-id').value = cells[1].textContent;
+    document.getElementById('edit-subject').value = cells[2].textContent;
+    document.getElementById('edit-category').value = cells[3].textContent;
+    document.getElementById('edit-priority').value = cells[4].textContent;
+    document.getElementById('edit-status').value = cells[5].textContent.toLowerCase(); // for dropdown match
+    document.getElementById('edit-assigned').value = cells[6].textContent;
+    document.getElementById('edit-createdby').value = cells[7].textContent;
+    document.getElementById('edit-location').value = cells[8].textContent;
+    document.getElementById('edit-phone').value = cells[9].textContent;
+    document.getElementById('edit-date').value = cells[10].textContent;
+
+    // Show the modal
+    const modal = document.getElementById("editModal");
+    modal.style.display = "block";
 }
 
-// Reset Search Function
-
-function resetSearch() {
-  // 1. Clear the search input
-  document.getElementById("ticketSearch").value = "";
-
-  // 2. Show all rows
-  const rows = document.querySelectorAll(".radio-table tbody tr");
-  rows.forEach(row => {
-    row.style.display = "";
-    row.classList.remove("selected"); // 4. Remove highlight
-  });
-
-  // 3. Uncheck all radio buttons
-  const radios = document.querySelectorAll('input[type="radio"][name="ticketSelect"]');
-  radios.forEach(radio => {
-    radio.checked = false;
-  });
-}
-
-function loadTicketDetails(radio) {
-  const ticketId = radio.closest('tr').dataset.ticketId;
-
-  // Optional: visually mark selected
-  document.querySelectorAll('.radio-table tbody tr').forEach(row => row.classList.remove('selected'));
-  radio.closest('tr').classList.add('selected');
-
-  // Show the modal
-  document.getElementById('editModal').classList.remove('hidden');
-
-  // Fetch ticket details
-  fetch(`get_ticket.php?id=${ticketId}`)
-    .then(response => response.json())
-    .then(data => {
-      // Fill read-only fields
-      document.getElementById('edit-ticket-id').value = data.id || '';
-      document.getElementById('edit-subject').value = data.subject || '';
-      document.getElementById('edit-category').value = data.category || '';
-      document.getElementById('edit-priority').value = data.priority || '';
-      document.getElementById('edit-assigned').value = data.assigned_to || '';
-      document.getElementById('edit-createdby').value = data.created_by || '';
-      document.getElementById('edit-location').value = data.location || '';
-      document.getElementById('edit-phone').value = data.phone_number || '';
-      document.getElementById('edit-date').value = data.date_created || '';
-
-      // Fill editable status
-      document.getElementById('edit-status').value = data.status || 'Open';
-
-      // Clear previous update message
-      document.getElementById('edit-update').value = '';
-    })
-    .catch(error => {
-      console.error('Error loading ticket:', error);
-      alert('Unable to load ticket details.');
-    });
-}
-
-function closeModal() {
-  document.getElementById('editModal').classList.add('hidden');
-}
+// Expose it to the global scope so inline onclick works
+window.loadTicketDetails = loadTicketDetails;

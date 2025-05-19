@@ -44,9 +44,9 @@
                 </ul>
             </li>
             <li class="active">
-                <a href="faq.html">
+                <a href="knowledgebase.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M660-160h40v-160h-40v160Zm20-200q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM200-800v640-640 200-200Zm80 400h147q11-23 25.5-43t32.5-37H280v80Zm0 160h123q-3-20-3-40t3-40H280v80ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h320l240 240v92q-19-6-39-9t-41-3v-40H480v-200H200v640h227q11 23 25.5 43T485-80H200Zm480-400q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480Z"/></svg>                    
-                    <span>Faq</span>
+                    <span>Knowledgebase</span>
                 </a>
             </li>
             <li>
@@ -69,44 +69,110 @@
             <p>Your Central Hub for ICT Self Service</p>
         </div>
         <div class="container">
-            <h2>Zoom</h2>
-                <em>Issues with either picture or audio</em>
-                <ul>
-                    <li>Ensure the correct account is being used.</li>
-                    <li>Ensure the correct meeting ID is being used.</li>
-                    <li>Ensure the correct password is being used.</li>
-                    <li>Ensure the correct link is being used.</li>
-                    <li>Check that the internet is connected and that the speed is okay.</li>
-                    <li>Check that the volume is turned up and not muted</li>
-                    Check that the camera is turned on and not blocked.
+        <div class="kb-container">
+           <input type="text" id="searchBox" placeholder="Search for an issue..." onkeyup="filterSections()" />
+
+            <div class="section">
+            <h2 onclick="toggleContent(this)"><span class="icon">🖥️</span>Issue 1: No Image on TV or Screen</h2>
+            <div class="content">
+                <ul class="knowledge-base">
+                    <li>Check power: ensure the screen is on.</li>
+                    <li>Check HDMI: plug HDMI into laptop and TV (not PC port).</li>
+                    <li>Use remote to change TV/source input.</li>
+                    <li>Press <strong>Windows + P</strong> and choose 'Duplicate'.</li>
+                    <li>Restart laptop and screen if needed.</li>
+                    <li>Try a different HDMI cable or port.</li>
                 </ul>
             </div>
-            <div class="container">
-                <h2>Zoom</h2>
-                    <em>Issues with either picture or audio</em>
-                    <ul>
-                        <li>Ensure the correct account is being used.</li>
-                        <li>Ensure the correct meeting ID is being used.</li>
-                        <li>Ensure the correct password is being used.</li>
-                        <li>Ensure the correct link is being used.</li>
-                        <li>Check that the internet is connected and that the speed is okay.</li>
-                        <li>Check that the volume is turned up and not muted</li>
-                        Check that the camera is turned on and not blocked.
+            </div>
+
+            <div class="section">
+            <h2 onclick="toggleContent(this)"><span class="icon">🔊</span>Issue 2: No Sound / Audio Not Playing</h2>
+            <div class="content">
+                <ul class="knowledge-base">
+                    <li>Click speaker icon in taskbar and select correct device.</li>
+                    <li>Ensure it's not muted.</li>
+                    <li>Test with a YouTube video or sound file.</li>
+                    <li>Check power and cable connection of external speakers.</li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="section">
+            <h2 onclick="toggleContent(this)"><span class="icon">💻</span>Issue 3: Laptop Not Displaying on Screen</h2>
+            <div class="content">
+                <ul class="knowledge-base">
+                    <li>Reconnect HDMI to laptop.</li>
+                    <li>Press <strong>Windows + P</strong> and choose 'Duplicate'.</li>
+                    <li>Adjust refresh rate to 60Hz if needed.</li>
+                    <li>Try a spare screen or different cable.</li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="section">
+            <h2 onclick="toggleContent(this)"><span class="icon">📂</span>Issue 4: PowerPoint Won’t Open from OneDrive</h2>
+            <div class="content">
+                <ul class="knowledge-base">
+                    <li>Use <a href="https://www.office.com" target="_blank">Office Online</a> to open the file.</li>
+                    <li>Download file to desktop and open locally.</li>
+                    <li>Restart OneDrive if file doesn’t sync.</li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="section">
+            <h2 onclick="toggleContent(this)"><span class="icon">📹</span>Issue 5: Teams / Poly Bar AV Issues</h2>
+            <div class="content">
+                <ul class="knowledge-base">
+                    <li>Check HDMI/USB between Poly bar and PC.</li>
+                    <li>In Teams, go to Settings > Devices and select the correct mic/speaker/camera.</li>
+                    <li>Restart Teams or use a different device.</li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="section tips">
+            <h2 onclick="toggleContent(this)"><span class="icon">💡</span>Do's and Don'ts</h2>
+            <div class="content">
+                <h3 class="h3">✅ Do's</h3>
+                    <ul class="knowledge-base">
+                        <li>✔ Check all cable connections carefully.</li>
+                        <li>✔ Restart the device if unsure.</li>
+                        <li>✔ Use the correct input source.</li>
+                        <li>✔ Ask for help if you're unsure.</li>
+                        <li>✔ Leave equipment as you found it.</li>
                     </ul>
-                </div>
-                <div class="container">
-                    <h2>Zoom</h2>
-                        <em>Issues with either picture or audio</em>
-                        <ul>
-                            <li>Ensure the correct account is being used.</li>
-                            <li>Ensure the correct meeting ID is being used.</li>
-                            <li>Ensure the correct password is being used.</li>
-                            <li>Ensure the correct link is being used.</li>
-                            <li>Check that the internet is connected and that the speed is okay.</li>
-                            <li>Check that the volume is turned up and not muted</li>
-                            Check that the camera is turned on and not blocked.
-                        </ul>
-                    </div>
+                <br>
+                <hr>
+                <br>
+                <h3 class="h3">❌ Don'ts</h3>
+                    <ul class="knowledge-base">
+                        <li>✘ Don’t yank or force cables.</li>
+                        <li>✘ Don’t plug HDMI cables into PC output ports when using a laptop.</li>
+                        <li>✘ Don’t adjust advanced settings unless instructed.</li>
+                        <li>✘ Don’t assume the equipment is faulty immediately.</li>
+                        <li>✘ Don’t leave rooms without reporting unresolved problems.</li>
+                    </ul>
+            </div>
+            </div>
+        </div>
+     </div>   
+        <script>
+        function toggleContent(element) {
+        const content = element.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+
+        function filterSections() {
+        const input = document.getElementById('searchBox').value.toLowerCase();
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            const text = section.innerText.toLowerCase();
+            section.style.display = text.includes(input) ? '' : 'none';
+        });
+        }
+        </script>
     </main>
 </body>
 </html>

@@ -44,9 +44,9 @@
                 </ul>
             </li>
             <li>
-                <a href="faq.html">
+                <a href="knowledgebase.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M660-160h40v-160h-40v160Zm20-200q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM200-800v640-640 200-200Zm80 400h147q11-23 25.5-43t32.5-37H280v80Zm0 160h123q-3-20-3-40t3-40H280v80ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h320l240 240v92q-19-6-39-9t-41-3v-40H480v-200H200v640h227q11 23 25.5 43T485-80H200Zm480-400q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480Z"/></svg>                    
-                    <span>Faq</span>
+                    <span>Knowledgebase</span>
                 </a>
             </li>
             <li class="active">
@@ -69,13 +69,120 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, perspiciatis libero! Quam fugiat fuga recusandae saepe suscipit, consequuntur incidunt nemo autem eius provident cumque similique porro nostrum neque, enim at!</p>
         </div>
         <div class="container">
+        <div class="grid-container">
+            <div class="card">
+                <h2>Total Tickets Logged (This Month)</h2>
+                <p>120</p>
+            </div>
+            <div class="card">
+                <h2>Resolved Tickets</h2>
+                <p>85</p>
+            </div>
+            <div class="card">
+                <h2>Average Resolution Time</h2>
+                <p>15 Mins</p>
+            </div>
+            <div class="card">
+                <h2>Open Tickets</h2>
+                <p>28</p>
+            </div>
+            <div class="card">
+                <h2>Escalated Tickets</h2>
+                <p>5</p>
+            </div>
+            <div class="card">
+                <h2>Feedback Rating</h2>
+            <div class="feedback-stars">★★★★☆</div>
+            </div>
+            <div class="card">
+                <h2>Tickets Logged Over Time</h2>
+                <canvas id="ticketsOverTime"></canvas>
+            </div>
+            <div class="card">
+                <h2>Tickets by Category</h2>
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Tickets by Priority</h2>
+                <canvas id="priorityChart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Tickets by Status</h2>
+                <canvas id="statusChart"></canvas>
+            </div>
+        </div>
+        </div>
+
+        <!-- <div class="container">
             <h2>Example Heading</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
         </div>
         <div class="container">
             <h2>Lorem Ipsum</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tenetur ea, aliquam reprehenderit perferendis ipsam nam sed odio corrupti! Reprehenderit doloremque laudantium nulla maiores ipsa dolor itaque. In, aliquid rerum!</p>
-        </div>
+        </div> -->
+         <script>
+    function drawBarChart(id, labels, values) {
+      const canvas = document.getElementById(id);
+      const ctx = canvas.getContext('2d');
+      const max = Math.max(...values);
+      const barWidth = canvas.width / labels.length;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      values.forEach((val, i) => {
+        const height = (val / max) * canvas.height;
+        ctx.fillStyle = '#5e63ff';
+        ctx.fillRect(i * barWidth + 10, canvas.height - height, barWidth - 20, height);
+        ctx.fillStyle = '#000';
+        ctx.fillText(labels[i], i * barWidth + 10, canvas.height - 5);
+      });
+    }
+
+    function drawLineChart(id, data) {
+      const canvas = document.getElementById(id);
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.strokeStyle = '#5e63ff';
+
+      const stepX = canvas.width / (data.length - 1);
+      const maxY = Math.max(...data);
+
+      data.forEach((val, i) => {
+        const x = i * stepX;
+        const y = canvas.height - (val / maxY) * canvas.height;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+
+      ctx.stroke();
+    }
+
+    function drawPieChart(id, data, colors) {
+      const canvas = document.getElementById(id);
+      const ctx = canvas.getContext('2d');
+      const total = data.reduce((a, b) => a + b, 0);
+      let startAngle = 0;
+
+      data.forEach((val, i) => {
+        const angle = (val / total) * Math.PI * 2;
+        ctx.fillStyle = colors[i];
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2, canvas.height / 2);
+        ctx.arc(canvas.width / 2, canvas.height / 2, 80, startAngle, startAngle + angle);
+        ctx.fill();
+        startAngle += angle;
+      });
+    }
+
+    // Render charts on load
+    window.onload = function () {
+      drawLineChart("ticketsOverTime", [15, 25, 22, 30, 35, 28, 40]);
+      drawPieChart("categoryChart", [40, 30, 30], ["#5e63ff", "#999", "#ccc"]);
+      drawBarChart("priorityChart", ["Low", "Medium", "High"], [20, 40, 30]);
+      drawBarChart("statusChart", ["Open", "In Progress", "Resolved", "Escalated"], [10, 20, 40, 5]);
+    };
+  </script>
     </main>
 </body>
 </html>
