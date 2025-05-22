@@ -17,45 +17,45 @@
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z"/></svg>
                 </button>
             </li>
-            <li>
+            <li data-visible-to="all">
                 <a href="index.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                     <span>Home</span>
                 </a>
             </li>
-            <li>
+            <li data-visible-to="ict,admin">
                 <a href="dashboard.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <button onclick=toggleSubMenu(this) class="dropdown-btn">
+                <button onclick=toggleSubMenu(this) class="dropdown-btn" data-visible-to="all">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q13-36 43.5-58t68.5-22q38 0 68.5 22t43.5 58h168q33 0 56.5 23.5T840-760v268q-19-9-39-15.5t-41-9.5v-243H200v560h242q3 22 9.5 42t15.5 38H200Zm0-120v40-560 243-3 280Zm80-40h163q3-21 9.5-41t14.5-39H280v80Zm0-160h244q32-30 71.5-50t84.5-27v-3H280v80Zm0-160h400v-80H280v80Zm200-190q13 0 21.5-8.5T510-820q0-13-8.5-21.5T480-850q-13 0-21.5 8.5T450-820q0 13 8.5 21.5T480-790ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm-20-80h40v-100h100v-40H740v-100h-40v100H600v40h100v100Z"/></svg>
                     <span>Request</span>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                 </button>
                 <ul class="sub-menu">
                     <div>
-                        <li class="active"><a href="ticket.html">Submit Ticket</a></li>
-                        <li><a href="asset.html">Asset Request</a></li>
-                        <li><a href="feedback.html">Feedback</a></li>  
+                        <li data-visible-to="all" class="active"><a href="ticket.html">Submit Ticket</a></li>
+                        <li data-visible-to="all"><a href="asset.html">Asset Request</a></li>
+                        <li data-visible-to="all"><a href="feedback.html">Feedback</a></li>  
                     </div> 
                 </ul>
             </li>
-            <li>
+            <li data-visible-to="all">
                 <a href="knowledgebase.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M660-160h40v-160h-40v160Zm20-200q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM200-800v640-640 200-200Zm80 400h147q11-23 25.5-43t32.5-37H280v80Zm0 160h123q-3-20-3-40t3-40H280v80ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h320l240 240v92q-19-6-39-9t-41-3v-40H480v-200H200v640h227q11 23 25.5 43T485-80H200Zm480-400q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480Z"/></svg>                    
                     <span>Knowledgebase</span>
                 </a>
             </li>
-            <li>
+            <li data-visible-to="ict,admin">
                 <a href="analytics.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M280-280h80v-200h-80v200Zm320 0h80v-400h-80v400Zm-160 0h80v-120h-80v120Zm0-200h80v-80h-80v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>                
                     <span>Reports</span>
                 </a>   
             </li>
-            <li>
+            <li data-visible-to="ict,admin">
                 <a href="profile.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
                     <span>Profile</span>
@@ -116,7 +116,11 @@
                     <input id="user-email" type="email"  name="user-email" placeholder="E.g: youremail@email.com">
                 </div>  
                 <div class="input-box">
-                    <label for="user-name">Name</label>
+                    <label for="user-name">First Name</label>
+                    <input id="user-name" type="text"  name="user-name">
+                </div>
+                <div class="input-box">
+                    <label for="user-name">Surname</label>
                     <input id="user-name" type="text"  name="user-name">
                 </div>
                 <div class="button-wrapper">
@@ -126,5 +130,19 @@
             </form>
         </div>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+  // Simulate user role from login (can also pull from sessionStorage or backend)
+  const userRole = 'general'; // Change to 'ict' or 'admin' as needed
+
+  // Show/hide items based on role
+  document.querySelectorAll('[data-visible-to]').forEach(item => {
+    const allowedRoles = item.getAttribute('data-visible-to').split(',');
+    if (!(allowedRoles.includes(userRole) || allowedRoles.includes('all'))) {
+      item.style.display = 'none';
+    }
+  });
+});
+    </script>
 </body>
 </html>

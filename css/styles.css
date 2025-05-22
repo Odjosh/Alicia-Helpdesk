@@ -1,5 +1,5 @@
 /* Homepage Base Setup */
-body.homepage {
+/* body.homepage {
   background: url("/assets/images/admin-image.png") no-repeat center center fixed;
   backdrop-filter: blur(80px);
   background-repeat: no-repeat;
@@ -25,10 +25,10 @@ html, body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 0rem;
-}
+} */
 
 /* Header */
-.hero-header {
+/* .hero-header {
   padding: 1rem 0 1rem;
   display: flex;
   align-items: center;
@@ -50,17 +50,17 @@ html, body {
   height: 100px;
   width: 100px;
   /* max-height: 80px; */
-}
+/* }
 
 h1 {
   font-size: 5rem;
   font-weight: 700;
   color: #0072ce;
   margin: 0;
-}
+} */
 
 /* Main Content */
-.hero-main {
+/* .hero-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -128,10 +128,10 @@ h1 {
 .hero-image img {
   max-width: 130%;
   height: auto;
-}
+} */
 
 /* Footer */
-.footer {
+/* .footer {
   background-color: #f6f8fc;
   text-align: center;
   padding: 1.5rem 0;
@@ -147,10 +147,10 @@ h1 {
 
 .footer a:hover {
   text-decoration: underline;
-}
+} */
 
 /* Responsive Breakpoints */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hero-main {
     flex-direction: column;
     text-align: center;
@@ -178,7 +178,7 @@ h1 {
     width: 100%;
     justify-content: center;
   }
-}
+} */
 
 /* Login Page */
 *{
@@ -194,7 +194,7 @@ a{
     text-decoration: none;
 }
 
-/* body{
+body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,7 +202,7 @@ a{
     background: url("../assets/images/admin-image.png") no-repeat;
     background-size: auto;
     background-position: center;
-} */
+}
 
 body.login-page {
     display: flex;
@@ -283,7 +283,7 @@ body.login-page {
     text-decoration: underline;
 }
 
-.wrapper .btn{
+.wrapper .btn {
     width: 100%;
     height: 45px;
     background: white;
@@ -296,13 +296,26 @@ body.login-page {
     color: #0072ce;
     font-weight: 600;
     font-style: normal;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-li{
+.wrapper .btn:hover {
+    background-color: lightskyblue;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.wrapper .btn:active {
+    background-color: lightskyblue; /* deeper blue */
+    transform: scale(0.98);
+}
+
+/* li{
     list-style: none;
-}
+} */
 
-:root{
+/* :root{
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;
     --light: #f9f9f9;
@@ -320,10 +333,10 @@ li{
 
 body .admin-dashboard{
     background: var(--grey);
-}
+} */
 
 /* SIDEBAR */
-#sidebar{
+/* #sidebar{
     position: fixed;
     top: 0;
     left: 0;
@@ -369,6 +382,6 @@ body .admin-dashboard{
     display: flex;
     align-items: center;
     border-radius: 48px;
-}
+} */
 /* SIDEBAR */
  
