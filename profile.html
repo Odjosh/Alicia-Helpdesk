@@ -107,15 +107,68 @@
                 <p><strong>Last Active:</strong> <span id="last-active">Yesterday</span></p>
             </div> -->
 
+            <!-- Settings Buttons -->
             <div id="settings" class="tab-panel">
-                <button class="settings-button">Change Password</button>
-                <button class="settings-button">Update Profile Picture</button>
-                <button class="settings-button">Notification Preferences</button>
+                <button onclick="openModal('passwordModal')" class="settings-button">Change Password</button>
+                <button onclick="openModal('profileModal')" class="settings-button">Update Profile Picture</button>
+                <!-- <button onclick="openModal('notificationModal')" class="settings-button">Notification Preferences</button> -->
             </div>
-        </main>
 
-    </div>
-    <script src="script.js"></script> </body>
+            <!-- Modal: Change Password -->
+            <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('passwordModal')">&times;</span>
+                <h3>Change Password</h3>
+                <input type="password" placeholder="Current Password"><br>
+                <input type="password" placeholder="New Password"><br>
+                <input type="password" placeholder="Confirm Password"><br>
+                <button>Submit</button>
+            </div>
+            </div>
+
+            <!-- Modal: Update Profile Picture -->
+            <div id="profileModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('profileModal')">&times;</span>
+                <h3>Update Profile Picture</h3>
+                <input type="file" accept="image/*"><br>
+                <button>Upload</button>
+            </div>
+            </div>
+
+            <!-- Modal: Notification Preferences -->
+            <!-- <div id="notificationModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('notificationModal')">&times;</span>
+                <h3>Notification Preferences</h3>
+                <label><input type="checkbox"> Email Notifications</label><br>
+                <label><input type="checkbox"> SMS Alerts</label><br>
+                <button>Save</button>
+            </div>
+            </div> -->
+            </main>
+
+        </div>
+        
+    <script>
+    function openModal(id) {
+        document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        document.querySelectorAll(".modal").forEach(modal => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        });
+    };
+    </script>
+    
+    </body>
     </main>
 </body>
 </html>
