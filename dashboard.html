@@ -174,55 +174,55 @@
                     <!-- Ticket rows will be dynamically generated here -->
                     <tr class="table-row" data-ticket-id="12345">
                         <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
-                        <td>12345</td>
-                        <td>Issue with Laptop</td>
-                        <td>Laptop/PC Equipment Issue</td>
-                        <td class="priority-high">High</td>
-                        <td>In Progress</td>
-                        <td>Joshua Odubu</td>
-                        <td>Jane Smith</td>
-                        <td>CSB RM10016</td>
-                        <td>07512345678</td>
-                        <td>2025-10-01</td>
+                        <td data-label="Ticket ID">12345</td>
+                        <td data-label="Description">Issue with Laptop</td>
+                        <td data-label="Category">Laptop/PC Equipment Issue</td>
+                        <td data-label="Priority" class="priority-high">High</td>
+                        <td data-label="Status">In Progress</td>
+                        <td data-label="Assigned To">Joshua Odubu</td>
+                        <td data-label="Created By">Jane Smith</td>
+                        <td data-label="Location">CSB RM10016</td>
+                        <td data-label="Phone Number">07512345678</td>
+                        <td data-label="Date Created">2025-10-01</td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
-                        <td>12346</td>
-                        <td>Software Installation</td>
-                        <td>Laptop/PC Software Issue</td>
-                        <td class="priority-medium">Medium</td>
-                        <td>Open</td>
-                        <td>George Taylor</td>
-                        <td>John Doe</td>
-                        <td>CSB RM10017</td>
-                        <td>07512345679</td>
-                        <td>2025-10-02</td>
+                        <td data-label="Ticket ID">12346</td>
+                        <td data-label="Description">Software Installation</td>
+                        <td data-label="Category">Laptop/PC Software Issue</td>
+                        <td data-label="Priority" class="priority-medium">Medium</td>
+                        <td data-label="Status">Open</td>
+                        <td data-label="Assigned To">George Taylor</td>
+                        <td data-label="Created By">John Doe</td>
+                        <td data-label="Location">CSB RM10017</td>
+                        <td data-label="Phone Number">07512345679</td>
+                        <td data-label="Date Created">2025-10-02</td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
-                        <td>12347</td>
-                        <td>AV Equipment Setup</td>
-                        <td>AV Equipment Issue</td>
-                        <td class="priority-low">Low</td>
-                        <td>Resolved</td>
-                        <td>George Taylor</td>
-                        <td>Mary Johnson</td>
-                        <td>CSB RM10018</td>
-                        <td>07512345680</td>
-                        <td>2025-10-03</td>
+                        <td data-label="Ticket ID">12347</td>
+                        <td data-label="Description">AV Equipment Setup</td>
+                        <td data-label="Category">AV Equipment Issue</td>
+                        <td data-label="Priority" class="priority-low">Low</td>
+                        <td data-label="Status">Resolved</td>
+                        <td data-label="Assigned To">George Taylor</td>
+                        <td data-label="Created By">Mary Johnson</td>
+                        <td data-label="Location">CSB RM10018</td>
+                        <td data-label="Phone Number">07512345680</td>
+                        <td data-label="Date Created">2025-10-03</td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="ticketSelect" onclick="loadTicketDetails(this)"></td>
-                        <td>12348</td>
-                        <td>AV Equipment Setup</td>
-                        <td>AV Equipment Issue</td>
-                        <td class="priority-critical">Critical</td>
-                        <td>Resolved</td>
-                        <td>Joshua Odubu</td>
-                        <td>Mary Johnson</td>
-                        <td>CSB RM10018</td>
-                        <td>07512345680</td>
-                        <td>2025-10-03</td>
+                        <td data-label="Ticket ID">12348</td>
+                        <td data-label="Description">AV Equipment Setup</td>
+                        <td data-label="Category">AV Equipment Issue</td>
+                        <td data-label="Priority" class="priority-critical">Critical</td>
+                        <td data-label="Status">Resolved</td>
+                        <td data-label="Assigned To">Joshua Odubu</td>
+                        <td data-label="Created By">Mary Johnson</td>
+                        <td data-label="Location">CSB RM10018</td>
+                        <td data-label="Phone Number">07512345680</td>
+                        <td data-label="Date Created">2025-10-03</td>
                     </tr>
                 </tbody>
             </table>
@@ -280,6 +280,22 @@
 </div>   
 </main>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const tables = document.querySelectorAll("table");
+
+  tables.forEach(table => {
+    const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent.trim());
+
+    table.querySelectorAll("tbody tr").forEach(row => {
+      row.querySelectorAll("td").forEach((cell, index) => {
+        if (headers[index]) {
+          cell.setAttribute("data-label", headers[index]);
+        }
+      });
+    });
+  });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     const ticketSearchInput = document.getElementById('ticketsearch');
     const categorySelect = document.getElementById('ticket-category');

@@ -1,4 +1,4 @@
-@import url('https //fonts.googleapis.com/css family=poppins');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* :root {
     --base-clr: #11121a;
@@ -281,6 +281,49 @@ p {
     margin-top: 2rem;
 }
 
+
+/* Responsive tweaks for index.html homepage */
+
+@media (max-width: 600px) {
+  /* Stack CTA buttons vertically */
+  .cta-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Make buttons stretch full width */
+  .cta-button,
+  .ticket-button,
+  .btn {
+    width: 100%;
+  }
+
+  /* Adjust heading and paragraph sizes */
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  main p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  /* Tighter container padding */
+  .container {
+    padding: 1em;
+  }
+
+  /* Responsive logo handling */
+  #sidebar img,
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 .cta-button {
     display: inline-block;
     padding: 10px 20px;
@@ -305,6 +348,18 @@ p {
 .cta-button:active {
     background-color: #3e43c9; /* Deeper tactile feedback */
     transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  main p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 
@@ -393,6 +448,8 @@ h3 {
     background: var(--base-clr); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 }
 
 .dashboard-btn {
@@ -498,6 +555,28 @@ table {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  td::before {
+    content: attr(data-label); /* 🔥 This shows the label */
+    font-weight: bold;
+    color: #555;
+  }
 }
 
 thead th {
@@ -700,8 +779,14 @@ span .header-row {
 }
 
 .form .column {
-    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .form .column {
+    flex-direction: row;
     column-gap: 15px;
+  }
 }
 
 .input-box .label {
@@ -939,6 +1024,28 @@ input, select, textarea {
 
 /* Settings buttons already handled in previous response */
 
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-name {
+    font-size: 2rem;
+  }
+
+  .profile-role {
+    font-size: 1.2rem;
+  }
+
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+  }
+}
+
 .container {
   padding: 1.5rem;
 }
@@ -1123,6 +1230,12 @@ h3 {
   background: #00bcd4;
 }
 
+@media (max-width: 768px) {
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+}
+
 .charts-section {
   display: grid;
   grid-template-columns: 2fr 2fr;
@@ -1163,6 +1276,20 @@ h3 {
 }
 
 /* Knowledge Base */
+
+@media (max-width: 600px) {
+  .kb-container {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  #searchBox {
+    font-size: 14px;
+  }
+}
 
  .kb-container {
       max-width: 900px;
@@ -1242,3 +1369,80 @@ h3 {
         font-size: 14px;
       }
     } */
+
+    /* 🌐 Shared Responsive Enhancements for Ticket, Dashboard, Feedback Pages */
+@media (max-width: 600px) {
+  /* Stack form columns */
+  .form .column,
+  .asset-request-container .column {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Input, select, textarea width full */
+  .input-box input,
+  .input-box select,
+  .input-box textarea {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Button groups stack */
+  .button-wrapper,
+  .dashboard-btn {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ticket-button,
+  .dashboard-btn button {
+    width: 100%;
+  }
+
+  /* Table overflow fix */
+  .ticket-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  /* Table rows stacking layout */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+  }
+
+  /* Dashboard metric cards full width */
+  .card {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
