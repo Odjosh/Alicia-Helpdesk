@@ -1024,11 +1024,12 @@ input, select, textarea {
 
 /* Settings buttons already handled in previous response */
 
-@media (max-width: 600px) {
-  .profile-header {
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .profile-name {
